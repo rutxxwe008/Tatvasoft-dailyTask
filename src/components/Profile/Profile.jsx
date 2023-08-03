@@ -2,11 +2,14 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { Button, Tab, Tabs, TextField, makeStyles } from "@material-ui/core";
 
-
 const useStyles = makeStyles({
   button: {
-    backgroundColor: 'yellow',
-    color: 'black',
+    backgroundColor: "yellow",
+    color: "black",
+  },
+  tabs: {
+    backgroundColor: "yellow",
+    color: "black",
   },
 });
 
@@ -20,9 +23,9 @@ export const Profile = () => {
         <NavLink to="/">Home</NavLink>
       </h1>
       <br></br>
-      <Button variant="contained" className={classes.button}>
-  Click me!
-</Button>
+      <Button variant="contained" color="secondary" className={{}}>
+        Click me!
+      </Button>
       <br></br>
       <button> normal html </button>
       <br></br>
@@ -31,9 +34,9 @@ export const Profile = () => {
       <br></br>
       <input></input> <br></br>
       <br></br>
-     <Tabs className="tabs">
-      <Tab>Hello</Tab>
-     </Tabs>
+      <Tabs className={classes.tabs}>
+        <Tab>Hello</Tab>
+      </Tabs>
     </>
   );
 };

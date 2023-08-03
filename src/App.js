@@ -2,10 +2,30 @@ import "./App.css";
 
 import React from "react";
 import { User } from "./components/User";
-
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { LoginForm } from "./components/LoginForm";
+import { BrowserRouter, Form, Route, Routes } from "react-router-dom";
 import { Home } from "./components/Home";
 import { Profile } from "./components/Profile/Profile";
+
+import {
+  Box,
+  Button,
+  Checkbox,
+  ThemeProvider,
+  createTheme,
+} from "@material-ui/core";
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#d32f2f",
+    },
+    secondary: {
+      main: "#d24f2f",
+    },
+    shadows: ["none", "1px 1px gray"],
+  },
+});
 
 function App() {
   const username = "Rutvi";
@@ -14,15 +34,18 @@ function App() {
   console.log("array", filteredArray);
   return (
     <BrowserRouter>
-      <div className="App">
-        HELLO!
-        <br></br>
-        <Routes>
-          <Route path="/" element={<Home name={username} />} />
-          <Route path="/user" element={<User />} />
-          <Route path="/profile" element={<Profile />} />
-        </Routes>
-      </div>
+      <ThemeProvider theme={theme}>
+        <div className="App">
+          HELLO!
+          <br></br>
+          <Routes>
+            <Route path="/" element={<Home name={username} />} />
+            <Route path="/user" element={<User />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/loginform" element={<LoginForm />} />
+          </Routes>
+        </div>
+      </ThemeProvider>
     </BrowserRouter>
   );
 }
